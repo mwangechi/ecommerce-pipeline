@@ -1,0 +1,24 @@
+# Core
+pyspark==3.5.0
+kafka-python==2.0.2
+confluent-kafka==2.3.0
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+
+# Configuration
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Data
+pandas==2.1.4
+
+# Orchestration
+apache-airflow==2.8.0
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+
+# Linting
+ruff==0.1.8

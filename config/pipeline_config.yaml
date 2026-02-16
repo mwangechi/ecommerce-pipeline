@@ -1,0 +1,44 @@
+kafka:
+  bootstrap_servers: "${KAFKA_BOOTSTRAP_SERVERS:-localhost:9092}"
+  topic: "${KAFKA_TOPIC:-clickstream_events}"
+  group_id: "${KAFKA_GROUP_ID:-ecommerce_consumer_group}"
+  auto_offset_reset: "${KAFKA_AUTO_OFFSET_RESET:-latest}"
+
+spark:
+  master: "${SPARK_MASTER:-local[*]}"
+  app_name: "${SPARK_APP_NAME:-EcommerceStreamProcessor}"
+  log_level: "${SPARK_LOG_LEVEL:-WARN}"
+  checkpoint_dir: "./checkpoints"
+  
+  streaming:
+    trigger_interval: "${BATCH_INTERVAL_SECONDS:-10}s"
+    watermark_delay: "${WATERMARK_DELAY_MINUTES:-5} minutes"
+    output_mode: "update"
+
+postgres:
+  host: "${POSTGRES_HOST:-localhost}"
+  port: ${POSTGRES_PORT:-5432}
+  database: "${POSTGRES_DB:-ecommerce}"
+  user: "${POSTGRES_USER:-pipeline}"
+  password: "${POSTGRES_PASSWORD:-changeme_in_production}"
+
+pipeline:
+  session_timeout_minutes: ${SESSION_TIMEOUT_MINUTES:-30}
+  
+  events:
+    types:
+      - page_view
+      - product_view
+      - add_to_cart
+      - remove_from_cart
+      - begin_checkout
+      - purchase
+    
+  products:
+    categories:
+      - Electronics
+      - Clothing
+      - Home & Garden
+      - Books
+      - Sports
+      - Beauty
