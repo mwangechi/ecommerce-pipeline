@@ -1,3 +1,5 @@
+[Back to Portfolio](https://mwangechi.github.io/Mwangechi-portfolio/)
+
 # Real-Time E-Commerce Analytics Pipeline
 
 A production-grade streaming data pipeline that ingests clickstream events via Apache Kafka, processes them with Apache Spark Structured Streaming, and loads aggregated metrics into PostgreSQL for real-time dashboarding.
